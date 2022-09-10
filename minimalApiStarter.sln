@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "minimalApiStarter", "minimalApiStarter\minimalApiStarter.csproj", "{61654157-A4FC-4706-ADCB-7DB27372CA68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "minimalApiStarter.Tests", "minimalApiStarter.Tests\minimalApiStarter.Tests.csproj", "{59CB5C25-8D67-4DD4-8159-535330E7B20E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61654157-A4FC-4706-ADCB-7DB27372CA68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61654157-A4FC-4706-ADCB-7DB27372CA68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61654157-A4FC-4706-ADCB-7DB27372CA68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61654157-A4FC-4706-ADCB-7DB27372CA68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59CB5C25-8D67-4DD4-8159-535330E7B20E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59CB5C25-8D67-4DD4-8159-535330E7B20E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59CB5C25-8D67-4DD4-8159-535330E7B20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59CB5C25-8D67-4DD4-8159-535330E7B20E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
