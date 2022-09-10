@@ -7,8 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<AuthOptions>(builder.Configuration.GetSection(AuthOptions.Name));
 builder.Services.AddSingleton<IJwtTokenService, JwtTokenService>();
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -35,7 +34,6 @@ builder.Services.AddAuthentication(o =>
 
 builder.Services.AddAuthorization();
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -46,7 +44,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -57,9 +54,11 @@ app.UseFileServer(new FileServerOptions
     RequestPath = "/wwwroot",
     EnableDirectoryBrowsing = true
 });
+
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
+//Endpoints
 app.UseAuthEndpoints();
 app.UseMyEndpoints();
     

@@ -44,7 +44,7 @@ public class JwtTokenService : IJwtTokenService
             Subject = new ClaimsIdentity(new[]{
                         new Claim("Id", userData.Id.ToString()),
                         new Claim(JwtRegisteredClaimNames.Email, userData.Email),
-                        // the JTI is used for our refresh token which we will be convering in the next video
+                        // the JTI is used for our refresh token which we will be convering in the next
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     
                     //user role
