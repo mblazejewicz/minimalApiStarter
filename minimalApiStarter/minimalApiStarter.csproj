@@ -12,6 +12,6 @@
     <PackageReference Include="EasyCaching.InMemory" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <InternalsVisibleTo Include="..\minimalApiStarter.IntegrationTests\minimalApiStarter.IntegrationTests.csproj" />
+    <InternalsVisibleTo Include="..\MinimalApiStarter.IntegrationTests\MinimalApiStarter.IntegrationTests.csproj" />
   </ItemGroup>
 </Project>
