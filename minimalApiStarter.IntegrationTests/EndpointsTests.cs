@@ -83,7 +83,7 @@ public class EndpointsTests
         }
     }
   
-  /*  [Fact]
+    /*[Fact]
     public async Task TestSecuredEndpoint()
     {
         // Arrange
@@ -113,7 +113,7 @@ public class EndpointsTests
             //admin2EndpointResponse.IsSuccessStatusCode.Should().BeFalse();
         }
     }
-*/
+    */
 
     public static IEnumerable<object[]> LoginUserData =>
         new List<object[]>

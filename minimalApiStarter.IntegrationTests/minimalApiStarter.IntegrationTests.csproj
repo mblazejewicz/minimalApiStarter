@@ -24,6 +24,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\minimalApiStarter\minimalApiStarter.csproj" />
+      <ProjectReference Include="..\minimalApiStarter\MinimalApiStarter.csproj" />
     </ItemGroup>
 </Project>
