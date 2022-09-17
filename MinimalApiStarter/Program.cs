@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
-using minimalApiStarter.Endpoints;
+using MinimalApiStarter.Endpoints;
 
 
 var builder = WebApplication.CreateBuilder(args);

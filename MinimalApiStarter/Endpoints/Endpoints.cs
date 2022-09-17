@@ -2,7 +2,7 @@ using EasyCaching.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace minimalApiStarter.Endpoints;
+namespace MinimalApiStarter.Endpoints;
 
 public static class Endpoints
 {

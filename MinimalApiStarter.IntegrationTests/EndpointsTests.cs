@@ -3,9 +3,9 @@ using System.Net.Http.Json;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Microsoft.AspNetCore.Mvc.Testing;
-using System.Net.Http.Headers;
+using MinimalApiStarter;
 
-namespace minimalApiStarter.Tests;
+namespace MinimalApiStarter.IntegrationTests;
 
 public class EndpointsTests
 {

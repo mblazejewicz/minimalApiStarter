@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 
-namespace minimalApiStarter.Endpoints;
+namespace MinimalApiStarter.Endpoints;
 
 public static class AuthEndpoints
 {
