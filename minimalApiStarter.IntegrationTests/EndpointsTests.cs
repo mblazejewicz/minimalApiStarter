@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Microsoft.AspNetCore.Mvc.Testing;
+using System.Net.Http.Headers;
 
 namespace minimalApiStarter.Tests;
 
@@ -81,6 +82,38 @@ public class EndpointsTests
             }
         }
     }
+  
+  /*  [Fact]
+    public async Task TestSecuredEndpoint()
+    {
+        // Arrange
+        var validUser = new LoginQuery("admin@test.com", "Pass");
+        // Act
+        var client = _application.CreateClient();
+        var response = await client.PostAsJsonAsync("/security/getToken",
+            validUser);
+
+        var accessToken = await response.Content.ReadAsStringAsync();
+
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+        var securedEndpointResponse = await client.GetAsync("/secret");
+
+        var adminEndpointResponse = await client.GetAsync("/admin");
+
+        var admin2EndpointResponse = await client.GetAsync("/admin2");
+
+        // Assert
+        using (new AssertionScope())
+        {
+            response.IsSuccessStatusCode.Should().BeTrue();
+            accessToken.Should().NotBeNull().And.NotBeEmpty();
+            //securedEndpointResponse.IsSuccessStatusCode.Should().BeTrue();
+            //adminEndpointResponse.IsSuccessStatusCode.Should().BeTrue();
+            //admin2EndpointResponse.IsSuccessStatusCode.Should().BeFalse();
+        }
+    }
+*/
 
     public static IEnumerable<object[]> LoginUserData =>
         new List<object[]>
