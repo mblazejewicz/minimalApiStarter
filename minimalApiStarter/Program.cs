@@ -1,8 +1,12 @@
+using System.IO;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using minimalApiStarter.Endpoints;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +26,7 @@ builder.Services.AddAuthentication(o =>
 {
     o.TokenValidationParameters = new TokenValidationParameters
     {
-       ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey
             (Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
@@ -34,6 +38,12 @@ builder.Services.AddAuthentication(o =>
 });
 
 builder.Services.AddAuthorization();
+//add easy cache
+builder.Services.AddEasyCaching(options =>
+{
+    options.UseInMemory("inMemoryCache");
+});
+
 
 var app = builder.Build();
 
@@ -62,7 +72,7 @@ app.UseStaticFiles();
 //Endpoints
 app.UseAuthEndpoints();
 app.UseMyEndpoints();
-    
+
 app.Run();
 
 public partial class Program { }
