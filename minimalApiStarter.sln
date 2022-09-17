@@ -1,28 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApiStarter", "MinimalApiStarter\MinimalApiStarter.csproj", "{96135DB8-9CAF-43AD-AFA4-AC1D38D1FE59}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApiStarter.IntegrationTests", "MinimalApiStarter.IntegrationTests\MinimalApiStarter.IntegrationTests.csproj", "{01C7961B-68F8-4F3D-A7B6-9CBF1CEAB103}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApiStarter.Infrastructure", "MinimalApiStarter.Infrastructure\MinimalApiStarter.Infrastructure.csproj", "{99B5DB9A-2EDD-43BE-B779-6040436068C0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{96135DB8-9CAF-43AD-AFA4-AC1D38D1FE59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96135DB8-9CAF-43AD-AFA4-AC1D38D1FE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96135DB8-9CAF-43AD-AFA4-AC1D38D1FE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96135DB8-9CAF-43AD-AFA4-AC1D38D1FE59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01C7961B-68F8-4F3D-A7B6-9CBF1CEAB103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01C7961B-68F8-4F3D-A7B6-9CBF1CEAB103}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01C7961B-68F8-4F3D-A7B6-9CBF1CEAB103}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01C7961B-68F8-4F3D-A7B6-9CBF1CEAB103}.Release|Any CPU.Build.0 = Release|Any CPU
-		{99B5DB9A-2EDD-43BE-B779-6040436068C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99B5DB9A-2EDD-43BE-B779-6040436068C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99B5DB9A-2EDD-43BE-B779-6040436068C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99B5DB9A-2EDD-43BE-B779-6040436068C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
