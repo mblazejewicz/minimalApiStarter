@@ -6,7 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using MinimalApiStarter.Endpoints;
-
+using Microsoft.AspNetCore.SpaProxy;
+using Microsoft.AspNetCore.StaticFiles.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +45,11 @@ builder.Services.AddEasyCaching(options =>
     options.UseInMemory("inMemoryCache");
 });
 
+//add spa dist
+builder.Services.AddSpaStaticFiles(configuration =>
+{
+    configuration.RootPath = "ClientApp/dist";
+});
 
 var app = builder.Build();
 
@@ -58,13 +64,23 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseFileServer(new FileServerOptions
+app.UseSpa(spa =>
+{
+    spa.Options.SourcePath = "ClientApp";
+    if (app.Environment.IsDevelopment())
+    {
+        spa.UseProxyToSpaDevelopmentServer("http://localhost:5173");
+    }
+});
+/*app.UseFileServer(new FileServerOptions
 {
     FileProvider = new PhysicalFileProvider(
-           Path.Combine(builder.Environment.ContentRootPath, "wwwroot")),
-    RequestPath = "/wwwroot",
+           Path.Combine(builder.Environment.ContentRootPath, "ClientApp/dist")),
+    RequestPath = "/ClientApp/dist",
     EnableDirectoryBrowsing = true
 });
+*/
+
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
@@ -72,6 +88,7 @@ app.UseStaticFiles();
 //Endpoints
 app.UseAuthEndpoints();
 app.UseMyEndpoints();
+
 
 app.Run();
 
