@@ -1,13 +1,9 @@
-using System.IO;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using MinimalApiStarter.Endpoints;
-using Microsoft.AspNetCore.SpaProxy;
-using Microsoft.AspNetCore.StaticFiles.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +12,8 @@ builder.Services.AddSingleton<IJwtTokenService, JwtTokenService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//builder.Services.AddSpaStaticFiles(config => config.RootPath = "/wwwroot");//"ClientApp/dist");
 
 // Add JWT configuration
 builder.Services.AddAuthentication(o =>
@@ -45,11 +43,6 @@ builder.Services.AddEasyCaching(options =>
     options.UseInMemory("inMemoryCache");
 });
 
-//add spa dist
-builder.Services.AddSpaStaticFiles(configuration =>
-{
-    configuration.RootPath = "ClientApp/dist";
-});
 
 var app = builder.Build();
 
@@ -58,37 +51,64 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
 
+app.UseRouting();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseSpa(spa =>
+//Endpoints
+app.UseEndpoints(builder =>
 {
-    spa.Options.SourcePath = "ClientApp";
-    if (app.Environment.IsDevelopment())
-    {
-        spa.UseProxyToSpaDevelopmentServer("http://localhost:5173");
-    }
+    builder.UseAuthEndpoints();
+    builder.UseMyEndpoints();
 });
-/*app.UseFileServer(new FileServerOptions
-{
-    FileProvider = new PhysicalFileProvider(
-           Path.Combine(builder.Environment.ContentRootPath, "ClientApp/dist")),
-    RequestPath = "/ClientApp/dist",
-    EnableDirectoryBrowsing = true
-});
-*/
 
 
 app.UseDefaultFiles();
-app.UseStaticFiles();
 
-//Endpoints
-app.UseAuthEndpoints();
-app.UseMyEndpoints();
+if (!app.Environment.IsDevelopment())
+    app.UseStaticFiles();
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseSpa(spa =>
+    {
+        spa.Options.SourcePath = "ClientApp";
+        spa.UseProxyToSpaDevelopmentServer("http://localhost:5173");
+
+    });
+
+
+    Task.Run(() =>
+    {
+
+        try
+        {
+            // The following call to Start succeeds if test.txt exists.
+            Console.WriteLine("\nTrying to launch 'text.txt'...");
+            var psiNpmRunDev = new ProcessStartInfo
+            {
+                CreateNoWindow = true,
+                FileName = "cmd",
+                RedirectStandardInput = true,
+                // Arguments ="start npm run dev",
+                WorkingDirectory = Path.Combine(app.Environment.ContentRootPath, "ClientApp")
+            };
+            var pNpmRunDev = Process.Start(psiNpmRunDev);
+            pNpmRunDev.StandardInput.WriteLine("npm run dev");
+            pNpmRunDev.WaitForExitAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+
+    });
+}
 
 app.Run();
 

@@ -6,19 +6,27 @@ namespace MinimalApiStarter.Endpoints;
 
 public static class Endpoints
 {
-    public static void UseMyEndpoints(this WebApplication app)
+    public static void UseMyEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapGet("/weatherforecast", ForecastEndpointHandler)
+        app.MapGet("/api/weatherforecast", ForecastEndpointHandler)
             .WithName("GetWeatherForecast")
             .AllowAnonymous();
+        
+        app.MapGet("/api/getInfo", () =>
+        {
+            return $"server responded {DateTime.Now.ToLongTimeString()}";
+        });
 
-        app.MapGet("/test", ([FromQuery] int param) => { return $"you entered {param}"; });
+        app.MapGet("/api/test", ([FromQuery] int param) =>
+        {
+            return $"you entered {param}";
+        });
 
-        app.MapGet("/secret", [Authorize] () => { return "secret"; });
+        app.MapGet("/api/secret", [Authorize] () => { return "secret"; });
 
-        app.MapGet("/admin", [Authorize(Roles = "admin")] () => { return "admin secret"; });
+        app.MapGet("/api/admin", [Authorize(Roles = "admin")] () => { return "admin secret"; });
 
-        app.MapGet("/admin2", [Authorize(Roles = "admin2")] () => { return "admin 2 secret"; });
+        app.MapGet("/api/admin2", [Authorize(Roles = "admin2")] () => { return "admin 2 secret"; });
     }
 
     private static readonly string[] Summaries = new[]

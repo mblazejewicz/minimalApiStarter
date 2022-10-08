@@ -19,6 +19,16 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+    "minimalApiStarter-prod": {
+        "commandName": "Project",
+        "dotnetRunMessages": true,
+        "launchBrowser": true,
+        "launchUrl": "/",
+        "applicationUrl": "https://localhost:7176",
+        "environmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Production"
+        }
+      },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,

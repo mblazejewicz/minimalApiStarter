@@ -4,9 +4,9 @@ namespace MinimalApiStarter.Endpoints;
 
 public static class AuthEndpoints
 {
-    public static void UseAuthEndpoints(this WebApplication app)
+    public static void UseAuthEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapPost("/security/getToken", AuthEndpointHandler);
+        app.MapPost("/api/security/getToken", AuthEndpointHandler);
     }
 
     [AllowAnonymous]

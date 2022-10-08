@@ -27,7 +27,7 @@ public class EndpointsTests
 
         // Act
         var client = _application.CreateClient();
-        var result = await client.GetFromJsonAsync<List<WeatherForecast>>("/weatherforecast");
+        var result = await client.GetFromJsonAsync<List<WeatherForecast>>("/api/weatherforecast");
 
         // Assert
         using (new AssertionScope())
@@ -44,7 +44,7 @@ public class EndpointsTests
 
         // Act
         var client = _application.CreateClient();
-        var result = await client.GetStringAsync("/test/?param=123");
+        var result = await client.GetStringAsync("/api/test/?param=123");
 
         // Assert
         using (new AssertionScope())
@@ -62,7 +62,7 @@ public class EndpointsTests
 
         // Act
         var client = _application.CreateClient();
-        var response = await client.PostAsJsonAsync("/security/getToken",
+        var response = await client.PostAsJsonAsync("/api/security/getToken",
             data);
 
         var result = await response.Content.ReadAsStringAsync();
