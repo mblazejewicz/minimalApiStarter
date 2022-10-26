@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApiStarter", "Minima
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApiStarter.IntegrationTests", "MinimalApiStarter.IntegrationTests\MinimalApiStarter.IntegrationTests.csproj", "{7A3C9FFF-AF08-4164-B900-61FD3F01E85A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApiStarter.Domain", "MinimalApiStarter.Domain\MinimalApiStarter.Domain\MinimalApiStarter.Domain.csproj", "{6EF77497-7A59-454D-929E-2E8CD513666F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApiStarter.Infrastructure", "MinimalApiStarter.Infrastructure\MinimalApiStarter.Infrastructure.csproj", "{76CD8778-7CCC-4661-A37E-EA55AC9AC0A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{7A3C9FFF-AF08-4164-B900-61FD3F01E85A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A3C9FFF-AF08-4164-B900-61FD3F01E85A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A3C9FFF-AF08-4164-B900-61FD3F01E85A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EF77497-7A59-454D-929E-2E8CD513666F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF77497-7A59-454D-929E-2E8CD513666F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF77497-7A59-454D-929E-2E8CD513666F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF77497-7A59-454D-929E-2E8CD513666F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76CD8778-7CCC-4661-A37E-EA55AC9AC0A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76CD8778-7CCC-4661-A37E-EA55AC9AC0A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76CD8778-7CCC-4661-A37E-EA55AC9AC0A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76CD8778-7CCC-4661-A37E-EA55AC9AC0A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
